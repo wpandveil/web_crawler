@@ -27,8 +27,6 @@ def download_html(url):
 		response = urllib2.urlopen(req, None, req_timeout)
 		html = response.read()
 		html = html.replace("&", "&amp;")
-		#html = html.replace("xmlns", "id")
-		#html = html.replace("id:fb", "class")
 		return html
 	except:
 		return ""
@@ -39,8 +37,6 @@ parse html use xpath element
 """
 def parse_xpath_value(xpath_element, html):
 	try:
-		#f = StringIO.StringIO(html)
-		#tree = etree.parse(f)
 		tree = lxml.html.fromstring(html)
 		r = tree.xpath(xpath_element)
 		return r
